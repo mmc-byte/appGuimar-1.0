@@ -1,0 +1,83 @@
+// .ruta-container {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .ruta-item {
+//   text-align: center;
+// }
+
+// .ruta-icon {
+//   font-size: 3rem;
+//   width: 80px;
+//   height: 80px;
+//   border-radius: 50%;
+//   border: 5px solid transparent;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 0 auto;
+// }
+
+// .ruta-sistema .ruta-icon {
+//   border-color: #42a5f5; /* Azul */
+// }
+
+// .ruta-custom .ruta-icon {
+//   border-color: #ffca28; /* Amarillo */
+// }
+
+// .ruta-progress {
+//   margin-top: 10px;
+//   width: 80px;
+// }
+
+
+.ruta-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ruta-item {
+  text-align: center;
+}
+
+.ruta-icon {
+  font-size: 2.5rem;
+}
+
+.progress-circle {
+  --circle-size: 80px; /* Tamaño del círculo */
+  --progress-color: #3880ff; /* Color del progreso predeterminado */
+  --empty-color: #f0f0f0; /* Color del fondo */
+  --stroke-width: 5px; /* Ancho del borde */
+
+  position: relative;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--progress-color) calc(var(--progress) * 1%),
+    var(--empty-color) 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos dinámicos según el tipo de ruta */
+.ruta-sistema .progress-circle {
+  --progress-color: #42f545; /* Azul */
+}
+
+.ruta-custom .progress-circle {
+  --progress-color: #ffca28; /* Amarillo */
+}
+
+.progress-circle ion-icon {
+  position: relative;
+  z-index: 1;
+  background-color: white; /* Fondo blanco para el ícono */
+  border-radius: 50%;
+  padding: 0.5rem;
+}
