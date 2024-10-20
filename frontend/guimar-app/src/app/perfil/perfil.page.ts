@@ -4,21 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star } from 'ionicons/icons';
-import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class HomePage  {
-  constructor(private router: Router) {
+export class PerfilPage {
+  constructor() {
 
     addIcons({ create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star });
 
+
   }
-  irAPerfil() {
-    this.router.navigate(['/cuerpo-app/perfil']);
+  salir() {
+    // Aquí puedes agregar la lógica para cerrar sesión, como eliminar el token de autenticación, etc.
+    console.log('Cerrando sesión...');
   }
+
+
+
 }
