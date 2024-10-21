@@ -12,10 +12,26 @@ export const routes: Routes = [
   },
   {
     path: 'mi-aprendizaje',
-    loadComponent: () => import('./mi-aprendizaje/mi-aprendizaje.page').then( m => m.MiAprendizajePage)
+    loadComponent: () => import('./mi-aprendizaje/mi-aprendizaje.page').then(m => m.MiAprendizajePage)
+  },  {
+    path: 'explorar',
+    loadComponent: () => import('./explorar/explorar.page').then( m => m.ExplorarPage)
   },
   {
-    path: 'pagina-prueba',
-    loadComponent: () => import('./pagina-prueba/pagina-prueba.page').then( m => m.PaginaPruebaPage)
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'sign-up',
+    loadComponent: () => import('./sign-up/sign-up.page').then( m => m.SignUpPage)
+  },
+  {
+    path: 'welcome',
+    loadComponent: () => import('./welcome/welcome.page').then( m => m.WelcomePage)
+  },
+  {
+    path: 'perfil',
+    loadComponent: () => import('./perfil/perfil.page').then( m => m.PerfilPage)
   }
+
 ];
