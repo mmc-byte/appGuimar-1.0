@@ -7,31 +7,36 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full',
   },
   {
     path: 'mi-aprendizaje',
-    loadComponent: () => import('./mi-aprendizaje/mi-aprendizaje.page').then(m => m.MiAprendizajePage)
-  },  {
+    loadComponent: () => import('./mod-aprendizaje/mi-aprendizaje/mi-aprendizaje.page').then(m => m.MiAprendizajePage)
+  },
+  {
     path: 'explorar',
     loadComponent: () => import('./explorar/explorar.page').then( m => m.ExplorarPage)
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./mod-acceso/login/login.page').then(m => m.LoginPage)
   },
   {
     path: 'sign-up',
-    loadComponent: () => import('./sign-up/sign-up.page').then( m => m.SignUpPage)
+    loadComponent: () => import('./mod-acceso/sign-up/sign-up.page').then(m => m.SignUpPage)
   },
   {
     path: 'welcome',
-    loadComponent: () => import('./welcome/welcome.page').then( m => m.WelcomePage)
+    loadComponent: () => import('./mod-acceso/welcome/welcome.page').then(m => m.WelcomePage)
   },
   {
     path: 'perfil',
     loadComponent: () => import('./perfil/perfil.page').then( m => m.PerfilPage)
+  },
+  {
+    path: 'load-screen',
+    loadComponent: () => import('./mod-acceso/load-screen/load-screen.page').then(m => m.LoadScreenPage)
   }
 
 ];

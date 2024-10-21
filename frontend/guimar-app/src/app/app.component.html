@@ -1,3 +1,30 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-tabs>
+    <!-- <ion-tab-bar slot="bottom" *ngIf="mostrarMenuInferior"> -->
+    <ion-tab-bar slot="bottom">
+      <!-- Línea incluirá ngIf para controlar la aparición del menú durante reproducción de video. --mmaster -->
+      <ion-tab-button [routerLink]="['/home']" tab="home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="explorar" [routerLink]="['/explorar']">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Explorar</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="mi-aprendizaje" [routerLink]="['/mi-aprendizaje']">
+        <ion-icon name="book"></ion-icon>
+        <ion-label>Mi aprendizaje</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="perfil" [routerLink]="['/perfil']">
+        <ion-icon name="person-circle"></ion-icon>
+        <!-- ícono podrá ser reemplazado por un círculo con una imagen de perfil -->
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
 </ion-app>

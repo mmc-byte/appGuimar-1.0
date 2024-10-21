@@ -85,6 +85,8 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="full" color="danger" (click)="salir()">Cerrar Sesion</ion-button>
-  <!-- Llama a un método para cerrar sesión -->
+  <!-- <ion-button expand="full" color="danger" (click)="salir()">Cerrar Sesion</ion-button> -->
+  <!-- Llama a un método para cerrar sesión. Reemplazar linea de abajo por linea de arriba. -->
+  <ion-button expand="full" color="danger" [routerLink]="['/welcome']">Cerrar Sesion</ion-button>
+
 </ion-content>
