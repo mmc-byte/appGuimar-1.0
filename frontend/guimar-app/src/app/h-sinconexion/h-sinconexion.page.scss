@@ -1,0 +1,10 @@
+ion-list {
+  display: flex;
+  overflow-x: auto; // Habilita el desplazamiento horizontal
+  white-space: nowrap; // Evita que los elementos se desborden a la siguiente línea
+}
+
+.horizontal-item {
+  flex: 0 0 auto; // Asegura que los elementos no se expandan y tengan el tamaño correcto
+  margin-right: 10px; // Espacio entre los elementos
+}
