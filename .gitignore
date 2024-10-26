@@ -1,0 +1,2 @@
+# Ignorar el archivo de credenciales de Firebase
+/firebase/serviceAccountKey.json

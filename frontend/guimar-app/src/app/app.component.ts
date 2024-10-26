@@ -9,5 +9,10 @@ import { IonApp, IonRouterOutlet, IonTabs, IonTabButton, IonTabBar, IonIcon, Ion
   imports: [IonLabel, IonIcon, IonTabBar, IonTabButton, IonTabs, IonApp, IonRouterOutlet, RouterLink],
 })
 export class AppComponent {
-  constructor() {}
+  etapa: string;
+
+  constructor() {
+    // Simulando la respuesta del backend
+    this.etapa = 'niño'; // Puedes cambiar esto a 'adolescente' o 'adulto'
+  }
 }
