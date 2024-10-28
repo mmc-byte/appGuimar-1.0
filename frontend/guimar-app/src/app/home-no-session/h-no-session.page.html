@@ -1,0 +1,131 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <img src="assets/icon/favicon.png" alt="Perfil" style="width: 32px; height: 32px; border-radius: 50%;">
+      </ion-button>
+      <ion-buttons slot="primary">
+        <ion-button fill="solid" (click)="irAPerfil()">
+         Iniciar Sesion
+          <ion-icon slot="end" name="help-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Invitado</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">H-sinconexion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Scroll horizontal de tarjetas -->
+
+    <!--   <ion-card *ngFor="let item of items" class="scroll-card">
+        <ion-card-header>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ item.description }}
+        </ion-card-content>
+      </ion-card>-->
+
+
+
+
+
+
+
+
+
+
+
+  <ion-alert
+  [isOpen]="isAlertOpen"
+  message="Te damos la bienvenida de nuevo
+            Inicia sesión o suscríbete para obtener mas cursos"
+  [buttons]="alertButtons"
+></ion-alert>
+
+
+
+
+
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="explorar" disabled="true">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>Explorar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="rutas" disabled="true">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Rutas</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="perfil" disabled="true">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+</ion-content>

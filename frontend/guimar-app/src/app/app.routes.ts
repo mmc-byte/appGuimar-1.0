@@ -37,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'load-screen',
     loadComponent: () => import('./mod-acceso/load-screen/load-screen.page').then(m => m.LoadScreenPage)
+  },
+  {
+    path: 'pagos',
+    loadComponent: () => import('./mod-pagos/pagos/pagos.page').then(m => m.PagosPage)
   }
 
 ];

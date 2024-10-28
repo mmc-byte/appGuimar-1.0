@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonTabBar, IonTabs, IonTabButton, IonIcon, IonLabel, IonButton, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-cuerpo-app',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonButton, IonLabel, IonIcon, IonTabButton, IonTabs, IonTabBar, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink],
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
+
 export class HomePage {
-  constructor() {}
+
+  constructor(private router: Router) {}
+
+  irAPerfil() {
+    this.router.navigate(['/home/perfil']); // Navegar a la página de perfil
+  }
 }
