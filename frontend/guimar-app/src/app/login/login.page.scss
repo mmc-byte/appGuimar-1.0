@@ -97,20 +97,53 @@ ion-content {
       }
 
       ion-button {
+        position: relative; // Necesario para el efecto de neón
         width: 100%; // Botón ocupa todo el ancho
         height: 50px; // Altura del botón
-        --background: #28292d;
+        --background: #28292d; // Fondo del botón
         font-weight: bold; // Negrita
         font-size: 1.1rem; // Tamaño de fuente del botón
-        color: #45f3ff; // Color del texto del botón
+        color: #0ef; // Color del texto del botón
+        border: 2px solid transparent; // Borde transparente para la animación
         border-radius: 5px; // Bordes redondeados
         margin-top: 1rem; // Margen superior
-        &:active {
-          border-color: #39FF14; // Color verde neón al presionar
-          background-color: #7ed957; // Mantiene el color al pasar el mouse
-          color: #39FF14; // Color del texto del botón
+        overflow: hidden; // Ocultar contenido que sobresale
+        transition: color 0.4s, border-color 0.4s; // Transición para el color y el borde
+
+        // Efecto de neón en hover
+        &:hover {
+            color: #0ef; // Color del texto al pasar el mouse
+            box-shadow:
+                0 0 10px #0ef,
+                0 0 20px #0ef,
+                0 0 40px #0ef,
+                0 0 80px #0ef,
+                0 0 160px #0ef; // Efecto de brillo
         }
-      }
+
+        // Efecto de fondo en hover
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px; // Ajustar posición
+            width: 0;
+            height: 100%;
+            background: #0ef; // Color de fondo del efecto
+            transform: skewX(35deg);
+            z-index: -1; // Detrás del texto
+            transition: width 0.4s; // Transición para la animación
+        }
+
+        // Anima el fondo al pasar el mouse
+        &:hover::before {
+            width: 100%; // Ancho completo al hacer hover
+        }
+
+        // Cambios al presionar el botón
+
+    }
+
 
       .register-link {
         margin-top: 1.5rem; // Margen superior
