@@ -5,7 +5,7 @@
         <img src="assets/icon/favicon.png" alt="Perfil" style="width: 32px; height: 32px; border-radius: 50%;">
       </ion-button>
     </ion-buttons>
-    <ion-title>Nombre la app o logo</ion-title>
+    <ion-title>Guimar Education</ion-title>
 
   </ion-toolbar>
 
@@ -18,11 +18,21 @@
     </ion-toolbar>
   </ion-header>
 
-<<<<<<< HEAD
   <div id="container">
     <strong>Thony</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
-=======
->>>>>>> bba442fe08d17154b0b3123bfa2b5c9a1d32a666
+
 </ion-content>
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>

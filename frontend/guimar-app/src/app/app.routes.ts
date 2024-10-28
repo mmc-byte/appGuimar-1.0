@@ -24,5 +24,9 @@ export const routes: Routes = [
   {
     path: 'h-sinconexion',
     loadComponent: () => import('./h-sinconexion/h-sinconexion.page').then( m => m.HSinconexionPage)
+  },  {
+    path: 'scubi',
+    loadComponent: () => import('./scubi/scubi.page').then( m => m.ScubiPage)
   },
+
 ];

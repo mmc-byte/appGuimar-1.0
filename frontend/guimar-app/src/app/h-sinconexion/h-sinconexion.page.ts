@@ -16,6 +16,11 @@ import { Router } from '@angular/router';
 export class HSinconexionPage implements OnInit {
   isAlertOpen = false;
 
+  // Lista de elementos para las tarjetas
+  items: any[] = []; // Cambiado para iniciar vacío
+  private limit: number = 10; // Número de items a cargar por vez
+  private currentPage: number = 0; // Página actual
+
   alertButtons = [
     {
       text: 'Permanecer desconectado',
@@ -36,12 +41,35 @@ export class HSinconexionPage implements OnInit {
   constructor(private alertController: AlertController, private router: Router) {} // Inyecta Router
 
   ngOnInit() {
+    this.loadMoreItems(); // Carga inicial de items
     this.showAlert();
+  }
+
+  loadMoreItems() {
+    // Simulando la carga de datos (puedes reemplazarlo con una llamada a tu API)
+    for (let i = 0; i < this.limit; i++) {
+      const newItem = {
+        title: `Curso ${this.currentPage * this.limit + i + 1}`,
+        description: `Descripción del curso ${this.currentPage * this.limit + i + 1}`,
+      };
+      this.items.push(newItem);
+    }
+    this.currentPage++;
+  }
+
+  onScroll(event: any) {
+    const element = event.target;
+    const scrollPosition = element.scrollLeft + element.clientWidth;
+    const scrollWidth = element.scrollWidth;
+
+    if (scrollPosition >= scrollWidth - 5) {
+      this.loadMoreItems(); // Cargar más items cuando se llegue al final
+    }
   }
 
   async showAlert() {
     const alert = await this.alertController.create({
-      message: 'Te damos la bienvenida de nuevo '+ 'Para vizualisar mas cursos inicie sesion',
+      message: 'Te damos la bienvenida de nuevo ' + 'Para visualizar más cursos, inicie sesión',
       buttons: this.alertButtons
     });
 
