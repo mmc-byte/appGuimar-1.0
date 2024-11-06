@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star } from 'ionicons/icons';
 
@@ -13,17 +13,31 @@ import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle,
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class PerfilPage {
-  constructor() {
+  imageSrc: string = 'assets/icon/hacker (1).svg'; // Ruta de la imagen de perfil por defecto
+  @ViewChild('subscriptionModal') subscriptionModal: any; // Referencia al modal
 
+  constructor(private modalController: ModalController) {
+    // Añade los iconos de Ionicons
     addIcons({ create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star });
-
-
   }
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0]; // Obtiene el primer archivo seleccionado
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageSrc = e.target.result; // Actualiza la imagen de perfil con la nueva imagen seleccionada
+      };
+      reader.readAsDataURL(file); // Lee el archivo como una URL de datos
+    }
+  }
+
   salir() {
-    // Aquí puedes agregar la lógica para cerrar sesión, como eliminar el token de autenticación, etc.
+    // Aquí puedes agregar la lógica para cerrar sesión
     console.log('Cerrando sesión...');
   }
 
-
-
+  openSubscriptionModal() {
+    this.subscriptionModal.present(); // Muestra el modal
+  }
 }
