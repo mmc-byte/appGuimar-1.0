@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button default-href="/cuerpo-app/home"></ion-back-button>
+      <ion-back-button  default-href="/cuerpo-app/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
@@ -29,32 +29,36 @@
       <ion-icon slot="start" name="library"></ion-icon>suscripción actual</ion-button>
   </div>
 
-  <ion-card color="primary">
-    <ion-card-header>
-      <ion-card-title>Cursos Finalizados</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <h2>10🏁</h2>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-card color="primary">
+        <ion-card-header>
+          <ion-card-title>Cursos</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>10🏁</h2>
+        </ion-card-content>
+      </ion-card>
 
-  <ion-card color="primary">
-    <ion-card-header>
-      <ion-card-title>Certificados Obtenidos</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <h2>3🏆</h2>
-    </ion-card-content>
-  </ion-card>
+      <ion-card color="primary">
+        <ion-card-header>
+          <ion-card-title>Certificados</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>3🏆</h2>
+        </ion-card-content>
+      </ion-card>
 
-  <ion-card color="primary">
-    <ion-card-header>
-      <ion-card-title>Racha</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <h2>21💥</h2>
-    </ion-card-content>
-  </ion-card>
+      <ion-card color="primary">
+        <ion-card-header>
+          <ion-card-title>Racha</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>21💥</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 
   <ion-list>
     <ion-item>
