@@ -60,47 +60,257 @@
     </ion-row>
   </ion-grid>
 
-  <ion-list>
-    <ion-item>
-      <ion-icon slot="start" name="logo-firebase"></ion-icon>
-      <ion-label>
-        <h2>Nombre:</h2>
-        <p>Luis</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="logo-firebase"></ion-icon>
-      <ion-label>
-        <h2>Apellido:</h2>
-        <p>Palomino</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="logo-firebase"></ion-icon>
-      <ion-label>
-        <h2>Edad:</h2>
-        <p>20</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="logo-firebase"></ion-icon>
-      <ion-label>
-        <h2>Dirección:</h2>
-        <p>Cisnes 165, Callao</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="logo-firebase"></ion-icon>
-      <ion-label>
-        <h2>Usuario:</h2>
-        <p>Pafos</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+
+
+<!-- Botones para abrir los modales -->
+<ion-button id="open-modal-1" expand="block" class="custom-button">
+  <ion-icon slot="start" name="person-circle-outline"></ion-icon> <!-- Icono para información personal -->
+  Información Personal
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-button>
+
+<ion-button id="open-modal-2" expand="block" class="custom-button">
+  <ion-icon slot="start" name="notifications-outline"></ion-icon> <!-- Icono para notificaciones -->
+  Notificaciones
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-button>
+
+<ion-button id="open-modal-3" expand="block" class="custom-button">
+  <ion-icon slot="start" name="time-outline"></ion-icon> <!-- Icono para historial -->
+  Historial
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-button>
+
+<ion-button id="open-modal-4" expand="block" class="custom-button">
+  <ion-icon slot="start" name="help-circle-outline"></ion-icon> <!-- Icono para ayuda -->
+  Ayuda
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-button>
+
+
+
+
+<!-- Primer modal -->
+<ion-modal #modal1 trigger="open-modal-1">
+  <ng-template>
+    <ion-content>
+      <ion-toolbar>
+        <ion-title>Informacion Personal</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal1.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <!-- Nueva lista de información dentro del modal 1 -->
+      <ion-list>
+        <!-- Nombre -->
+        <ion-item *ngIf="!editName">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>
+            <h2>Nombre:</h2>
+            <p>{{ user.name }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editName = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editName">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>
+            <h2>Nombre:</h2>
+            <ion-input [(ngModel)]="user.name"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editName = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Apellido -->
+        <ion-item *ngIf="!editLastName">
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>
+            <h2>Apellido:</h2>
+            <p>{{ user.lastName }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editLastName = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editLastName">
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>
+            <h2>Apellido:</h2>
+            <ion-input [(ngModel)]="user.lastName"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editLastName = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Edad -->
+        <ion-item *ngIf="!editAge">
+          <ion-icon slot="start" name="time-outline"></ion-icon>
+          <ion-label>
+            <h2>Edad:</h2>
+            <p>{{ user.age }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editAge = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editAge">
+          <ion-icon slot="start" name="time-outline"></ion-icon>
+          <ion-label>
+            <h2>Edad:</h2>
+            <ion-input [(ngModel)]="user.age"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editAge = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Dirección -->
+        <ion-item *ngIf="!editAddress">
+          <ion-icon slot="start" name="location-outline"></ion-icon>
+          <ion-label>
+            <h2>Dirección:</h2>
+            <p>{{ user.address }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editAddress = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editAddress">
+          <ion-icon slot="start" name="location-outline"></ion-icon>
+          <ion-label>
+            <h2>Dirección:</h2>
+            <ion-input [(ngModel)]="user.address"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editAddress = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Usuario -->
+        <ion-item *ngIf="!editUsername">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          <ion-label>
+            <h2>Usuario:</h2>
+            <p>{{ user.username }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editUsername = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editUsername">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          <ion-label>
+            <h2>Usuario:</h2>
+            <ion-input [(ngModel)]="user.username"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editUsername = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Correo -->
+        <ion-item *ngIf="!editEmail">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          <ion-label>
+            <h2>Correo:</h2>
+            <p>{{ user.email }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editEmail = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editEmail">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          <ion-label>
+            <h2>Correo:</h2>
+            <ion-input [(ngModel)]="user.email"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editEmail = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+
+        <!-- Número Telefónico -->
+        <ion-item *ngIf="!editPhone">
+          <ion-icon slot="start" name="call-outline"></ion-icon>
+          <ion-label>
+            <h2>Número Telefónico:</h2>
+            <p>{{ user.phone }}</p>
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editPhone = true">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item *ngIf="editPhone">
+          <ion-icon slot="start" name="call-outline"></ion-icon>
+          <ion-label>
+            <h2>Número Telefónico:</h2>
+            <ion-input [(ngModel)]="user.phone"></ion-input> <!-- Campo editable -->
+          </ion-label>
+          <ion-button fill="clear" slot="end" (click)="editPhone = false">
+            <ion-icon name="checkmark-outline"></ion-icon> <!-- Confirmar cambio -->
+          </ion-button>
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- Segundo modal -->
+<ion-modal #modal2 trigger="open-modal-2">
+  <ng-template>
+    <ion-content>
+      <ion-toolbar>
+        <ion-title>Modal 2</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal2.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-list>
+        <!-- Contenido del segundo modal (puede ser el mismo o diferente) -->
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>Daniel Smith</h2>
+            <p>Product Designer</p>
+          </ion-label>
+        </ion-item>
+        <!-- Más elementos aquí -->
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 
   <ion-button expand="full" color="danger" (click)="salir()">Cerrar Sesion</ion-button>
 
-  <!-- Modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal 1 -->
   <ion-modal #subscriptionModal>
     <ng-template>
       <ion-header>
@@ -121,4 +331,45 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+
+
+
+
+
+
+  <!-- Modal 2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal 3 -->
+
+
+
+
+
 </ion-content>
+

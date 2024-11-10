@@ -14,6 +14,24 @@ import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle,
 })
 export class PerfilPage {
   imageSrc: string = 'assets/icon/hacker (1).svg'; // Ruta de la imagen de perfil por defecto
+  user = {
+    name: 'Luis',
+    lastName: 'Palomino',
+    age: 20,
+    address: 'Cisnes 165, Callao',
+    username: 'Pafos',
+    email: 'correo.com',
+    phone: '(+51) 995954440'
+  };
+
+  editName: boolean = false;
+  editLastName: boolean = false;
+  editAge: boolean = false;
+  editAddress: boolean = false;
+  editUsername: boolean = false;
+  editEmail: boolean = false;
+  editPhone: boolean = false;
+
   @ViewChild('subscriptionModal') subscriptionModal: any; // Referencia al modal
 
   constructor(private modalController: ModalController) {

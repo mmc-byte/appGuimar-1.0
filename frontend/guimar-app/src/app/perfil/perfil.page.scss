@@ -43,3 +43,37 @@ ion-modal ion-toolbar {
   --background: rgb(13, 87, 224);
   --color: white;
 }
+
+.custom-button {
+  --background: #1e2a38; /* Color de fondo oscuro */
+  --border-radius: 5px; /* Bordes redondeados */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --color: #ebe7e7; /* Color del texto */
+  --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para un efecto elevado */
+  text-transform: none; /* Evita que el texto esté en mayúsculas */
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  height: 80px; /* Ajusta la altura del botón */
+  font-size: 15px; /* Aumenta el tamaño de la fuente */
+  margin-bottom: 12px; /* Espacio adicional debajo de cada botón */
+  width: 90%; /* Reduce el ancho del botón */
+  max-width: 400px; /* Establece un ancho máximo opcional */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-button ion-icon[slot="end"] {
+  font-size: 24px; /* Aumenta el tamaño del icono */
+  color: #b0bec5; /* Color del icono de flecha */
+  margin-left: auto; /* Mueve el icono al extremo derecho */
+}
+.custom-button ion-icon[slot="start"] {
+  font-size: 24px; /* Aumenta el tamaño del icono */
+  color: #b0bec5; /* Color del primer icono */
+  margin-right: 12px; /* Espacio entre el primer icono y el texto */
+}
+
+.custom-button:hover {
+  --background: #2c3e50; /* Color al pasar el mouse (hover) */
+  transition: 0.3s;
+}
