@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./main/main.page').then(m => m.MainPage) },
   {
@@ -24,5 +25,9 @@ export const routes: Routes = [
   {
     path: 'h-sinconexion',
     loadComponent: () => import('./h-sinconexion/h-sinconexion.page').then( m => m.HSinconexionPage)
+  },  {
+    path: 'certificados',
+    loadComponent: () => import('./certificados/certificados.page').then( m => m.CertificadosPage)
   },
+
 ];
