@@ -1,14 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="secondary" >
-      <ion-button (click)="irAPerfil()">
-        <img src="assets/icon/favicon.png" alt="Perfil" style="width: 32px; height: 32px; border-radius: 50%;">
+    <ion-buttons slot="secondary">
+      <ion-button id="popover-button">
+        <ion-icon name="notifications-outline" style="font-size: 24px;"></ion-icon>
       </ion-button>
+
+      <ion-popover trigger="popover-button" side="bottom" alignment="start" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list style="display: block;">
+              <ion-item [button]="true" [detail]="false">Nueva Rama Subida</ion-item>
+              <ion-item [button]="true" [detail]="false">Notificación 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Notificación 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-button (click)="irAPerfil()">
+        <img src="assets/icon/hacker (1).svg" alt="Perfil" style="width: 32px; height: 32px; border-radius: 50%;">
+      </ion-button>
+
     </ion-buttons>
     <ion-title>Nombre la app o logo</ion-title>
-
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -17,5 +32,37 @@
       <ion-title size="large">home</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Scroll horizontal de tarjetas -->
+  <ion-list>
+    <ion-item *ngFor="let item of items" class="horizontal-item">
+        <ion-card class="custom-card">
+            <div class="play-icon-container">
+              <img
+              src="https://img.youtube.com/vi/YTyUOo505rU/0.jpg"
+              alt="Miniatura del video"
+              class="play-image"  />
+              </div>
+              <div class="divider-bar">
+                <div class="progress">
+                  <!-- Usa [style.width.%] para que la barra de progreso se actualice dinámicamente -->
+                  <div class="progress-done" [style.width.%]="item.progress"></div>
+                </div>
+              </div>
+            <div class="button-text-container">
+              <ion-button fill="clear" class="play-button">
+                <img src="assets/icon/reproducir-musica.svg" alt="Play" class="custom-play-image" />
+              </ion-button>
+              <div class="custom-text">
+                <p style="font-size: 0.5rem; color: aliceblue;">Duracion: 26 Minutos</p>
+                <p style="font-size: 0.3rem; color: #1e1e1e;">.</p>
+                <p style="font-size: 0.6rem; color: aliceblue;">Modelado de Vetices</p>
+              </div>
+            </div>
+        </ion-card>
+    </ion-item>
+   </ion-list>
+
+
 
 </ion-content>

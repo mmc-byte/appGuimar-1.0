@@ -11,7 +11,7 @@
         </ion-button>
       </ion-buttons>
     </ion-buttons>
-    <ion-title>Archivo sin conexion</ion-title>
+    <ion-title>Invitado</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -24,13 +24,28 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Scroll horizontal de tarjetas -->
+
+    <!--   <ion-card *ngFor="let item of items" class="scroll-card">
+        <ion-card-header>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ item.description }}
+        </ion-card-content>
+      </ion-card>-->
+
+
+
+
   <ion-alert
   [isOpen]="isAlertOpen"
   message="Te damos la bienvenida de nuevo
             Inicia sesión o suscríbete para obtener mas cursos"
   [buttons]="alertButtons"
 ></ion-alert>
-Holaaa
+
+
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
@@ -54,4 +69,50 @@ Holaaa
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items" class="horizontal-item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.description }}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
 </ion-content>

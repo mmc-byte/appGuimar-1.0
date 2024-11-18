@@ -1,0 +1,165 @@
+ion-content {
+  --background: #23242a; // Color de fondo oscuro
+  position: relative; // Necesario para que el posicionamiento absoluto funcione
+  height: 80vh; // Altura de la ventana
+
+  .box {
+    position: absolute; // Cambia a posición absoluta para centrar
+    left: 50%; // Centrado horizontal
+    top: 50%; // Centrado vertical
+    transform: translate(-50%, -50%); // Ajusta la posición para centrar completamente
+    width: 380px; // Ancho del contenedor
+    height: 500px; // Altura del contenedor
+    background: #1c1c1c; // Color de fondo del contenedor
+    border-radius: 8px; // Bordes redondeados
+    overflow: hidden; // Ocultar contenido que sobresale
+    display: flex; // Flex para centrar contenido interno
+    flex-direction: column; // Alinear contenido verticalmente
+    align-items: center; // Centrar el contenido
+    justify-content: center; // Centrar verticalmente el contenido
+
+    // Luz que recorre el contorno (primera luz)
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 380px; // Asegúrate de que el tamaño sea el correcto
+      height: 420px; // Asegúrate de que el tamaño sea el correcto
+      background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+      transform-origin: bottom right;
+      animation: move-light 6s linear infinite; // Animación de luz
+      animation-delay: -3s; // Retraso de animación para comenzar más adelante
+      opacity: 0.8; // Intensidad de la luz
+    }
+
+    // Luz que recorre el contorno (segunda luz)
+    &::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 380px; // Asegúrate de que el tamaño sea el correcto
+      height: 420px; // Asegúrate de que el tamaño sea el correcto
+      background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+      transform-origin: bottom right;
+      animation: move-light 6s linear infinite; // Animación de luz
+      opacity: 1; // Intensidad de la luz
+    }
+
+    @keyframes move-light {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .from {
+      position: absolute;
+      inset: 2px; // Espaciado interno
+      border-radius: 8px; // Bordes redondeados
+      background: #28292d; // Fondo oscuro del formulario
+      z-index: 10; // Colocar por encima de la luz
+      padding: 50px 40px; // Espaciado interno
+      display: flex;
+      flex-direction: column; // Alinear contenido verticalmente
+      align-items: center; // Centrar el contenido
+
+      h2 {
+        color: #45f3ff; // Color del título
+        font-weight: 500; // Negrita
+        text-align: center; // Texto centrado
+        letter-spacing: 0.1em; // Espaciado de letras
+      }
+
+      .inputBox {
+        position: relative; // Posición relativa para los campos de entrada
+        width: 300px; // Ancho del campo de entrada
+        margin-top: 40px; // Margen superior
+
+        ion-item {
+          --background: transparent; // Fondo transparente
+          --border-color: #45f3ff; // Color del borde
+        }
+        ion-label {
+          color: #45f3ff; // Color del texto
+        }
+
+        ion-input {
+          --padding-start: 12px; // Padding inicial
+          color: #fff; // Color del texto
+          --placeholder-color: #8f8f8f; // Color del placeholder
+          background: transparent; // Fondo transparente
+          border: none; // Sin borde
+        }
+      }
+
+      ion-button {
+        position: relative; // Necesario para el efecto de neón
+        width: 100%; // Botón ocupa todo el ancho
+        height: 50px; // Altura del botón
+        --background: #28292d; // Fondo del botón
+        font-weight: bold; // Negrita
+        font-size: 1.1rem; // Tamaño de fuente del botón
+        color: #0ef; // Color del texto del botón
+        border: 2px solid transparent; // Borde transparente para la animación
+        border-radius: 5px; // Bordes redondeados
+        margin-top: 1rem; // Margen superior
+        overflow: hidden; // Ocultar contenido que sobresale
+        transition: color 0.4s, border-color 0.4s; // Transición para el color y el borde
+
+        // Efecto de neón en hover
+        &:hover {
+            color: #0ef; // Color del texto al pasar el mouse
+            box-shadow:
+                0 0 10px #0ef,
+                0 0 20px #0ef,
+                0 0 40px #0ef,
+                0 0 80px #0ef,
+                0 0 160px #0ef; // Efecto de brillo
+        }
+
+        // Efecto de fondo en hover
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px; // Ajustar posición
+            width: 0;
+            height: 100%;
+            background: #0ef; // Color de fondo del efecto
+            transform: skewX(35deg);
+            z-index: -1; // Detrás del texto
+            transition: width 0.4s; // Transición para la animación
+        }
+
+        // Anima el fondo al pasar el mouse
+        &:hover::before {
+            width: 100%; // Ancho completo al hacer hover
+        }
+
+        // Cambios al presionar el botón
+
+    }
+
+
+      .register-link {
+        margin-top: 1.5rem; // Margen superior
+        font-size: 0.9rem; // Tamaño de fuente
+        color: #888; // Color del texto
+
+        a {
+          color: #45f3ff; // Color del enlace
+          text-decoration: none; // Sin subrayado
+
+          &:hover {
+            text-decoration: underline; // Subrayado al pasar el mouse
+          }
+        }
+      }
+    }
+  }
+}
+
