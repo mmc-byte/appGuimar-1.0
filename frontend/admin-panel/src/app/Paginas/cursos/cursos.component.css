@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Espacio entre la tabla y el card */
+}
+
+.table-container {
+  flex: 1; /* La tabla ocupa el espacio restante */
+  border-right: 2px solid black; /* Línea de separación entre la tabla y el card */
+  padding-right: 10px; /* Espacio entre la tabla y la línea */
+}
+
+/* Contenedor de la tarjeta al costado de la tabla */
+.side-content {
+  flex: 0 0 200px; /* Ajusta el tamaño del card */
+}
+
+/* Card dentro de .side-content */
+mat-card {
+  width: 90%; /* Asegura que el card ocupe todo el ancho disponible dentro de su contenedor */
+  height: 100%; /* Asegura que el card ocupe toda la altura disponible dentro de su contenedor */
+  left: 10px;
+}
+
+/* Card dentro de otro card con tamaño reducido */
+.nested-card-container mat-card {
+  width: 100%; /* Reduce el tamaño del card interno */
+  margin: 0 auto; /* Centra el card dentro del contenedor */
+  left: 10px;
+
+}

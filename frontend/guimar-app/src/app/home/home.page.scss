@@ -1,6 +1,5 @@
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -16,12 +15,153 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+ion-list {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  white-space: nowrap; /* Evita que los elementos se desborden a la siguiente línea */
+}
+
+.horizontal-item {
+  flex: 0 0 auto; /* Asegura que los elementos no se expandan y tengan el tamaño correcto */
+  margin-right: 10px; /* Espacio entre los elementos */
+}
+
+/* Estilo general para el card */
+.custom-card {
+  display: flex;
+  flex-direction: column; /* Contenido apilado verticalmente */
+  background-color: #1e1e1e; /* Color de fondo oscuro */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px #1e1e1e; /* Sombra para dar profundidad */
+  overflow: hidden; /* Evitar que el contenido se desborde */
+  width: 220px; /* Ancho del card */
+}
+/* Estilo para el contenedor de la imagen */
+.play-icon-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  height: 150px; /* Altura fija para la imagen */
+  width: 100%; /* Ocupar todo el ancho */
+  overflow: hidden; /* Evitar que la imagen se desborde */
+}
+
+/* Estilo de la imagen */
+.play-image {
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  height: 100%; /* Ocupar toda la altura del contenedor */
+  object-fit: cover; /* Mantener la proporción de la imagen */
+}
+
+/* Botón de reproducción */
+.play-button {
+  width: 35px; /* Ancho del botón */
+  height: 35px; /* Altura del botón */
+  margin: -10px 10px 0 0; /* Espacio superior, derecho, inferior, izquierdo */
+  background-color: #f3f3f3; /* Color de fondo del botón */
+  border-radius: 50%; /* Hacer el botón redondo */
+  box-shadow: 2px 5px 10px rgba(9, 9, 20, 0.15); /* Sombra suave */
+  display: flex; /* Usar flexbox para centrar la imagen */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+/* Imagen personalizada del botón */
+.custom-play-image {
+  width: 24px; /* Tamaño ajustado de la imagen */
+  height: 24px; /* Tamaño ajustado de la imagen */
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+}
+
+/* Contenedor para el texto y el botón */
+.button-text-container {
+  height: 30px; /* Altura fija */
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  padding: 2px; /* Espacio reducido */
+  margin-top: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Contenedor de texto */
+.text-container {
+  display: flex;
+  flex-direction: column; /* Mantener el texto en columna */
+  justify-content: center; /* Centrar el texto verticalmente */
+  height: 5px; /* Altura fija para coincidir con el contenedor */
+  margin-left: 5px; /* Espacio entre el botón y el texto */
+  overflow: hidden; /* Evitar que el texto se desborde */
+}
+
+/* Estilo del texto */
+.white-text {
+  color: white !important; /* Color blanco */
+  font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+  font-weight: 500; /* Peso de fuente */
+  font-size: 0.8rem; /* Tamaño de letra más pequeño */
+  line-height: 1.2; /* Altura de línea ajustada */
+}
+
+ion-card-content {
+  font-size: 0.7rem; /* Tamaño del contenido */
+  margin-top: 0px; /* Sin espaciado superior */
+  color: #b0b0b0; /* Color de texto más suave */
+}
+
+/* Ajustes de espaciado */
+.custom-text {
+  display: flex;
+  flex-direction: column; /* Mantener el texto en columna */
+  justify-content: center; /* Centrar el texto verticalmente */
+  height: 30px; /* Altura fija para coincidir con el contenedor */
+  margin-left: 5px; /* Espacio entre el botón y el texto */
+  overflow: hidden; /* Evitar que el texto se desborde */
+  margin-bottom: 10px;
+}
+.custom-text p {
+  margin: 0; /* Elimina márgenes para evitar desplazamientos no deseados */
+  line-height: 1.2; /* Ajusta la altura de línea */
+  font-size: 0.6rem; /* Tamaño de letra más pequeño */
+  color: #1e1e1e; /* Color del texto, puede ajustarse */
+}
+
+/* Estilo adicional para el texto de duración */
+.custom-text p:nth-child(2) {
+  font-size: 0.5rem; /* Ajusta el tamaño de la duración */
+  color: aliceblue; /* Color de la duración */
+}
+
+/* Estilo para los textos de Modelado de Vetices */
+.custom-text p:nth-child(4) {
+  font-size: 0.6rem; /* Ajusta el tamaño de "Modelado de Vetices" */
+  color: aliceblue; /* Color de "Modelado de Vetices" */
+}
+/* Línea divisora adaptada con barra de carga */
+.divider-bar {
+  height: 4px; /* Mantiene la altura original */
+  background-color: transparent; /* Fondo transparente para que solo se vea la barra de carga */
+  width: 100%; /* Ocupa todo el ancho */
+  margin: 0; /* Sin margen para que esté al borde */
+  position: relative; /* Para posicionar elementos internos */
+
+  .progress {
+    height: 100%; /* La altura de la barra de carga es igual a la de .divider-bar */
+    background: #181414; /* Fondo base de la barra de carga */
+    border-radius: 20px; /* Bordes redondeados */
+    width: 100%; /* Ocupa todo el ancho de .divider-bar */
+  }
+
+  .progress-done {
+    height: 100%; /* Ocupa toda la altura */
+    background: linear-gradient(to left, rgb(57, 255, 20), rgb(0, 255, 80)); /* Degradado verde */
+    border-radius: 20px; /* Bordes redondeados */
+    transition: width 0.5s ease; /* Animación suave */
+    width: 0; /* Comienza en 0% */
+  }
 }

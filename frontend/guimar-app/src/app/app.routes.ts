@@ -1,5 +1,9 @@
 import { Routes } from '@angular/router';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> pizarro
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./main/main.page').then(m => m.MainPage) },
   {
@@ -25,8 +29,13 @@ export const routes: Routes = [
     path: 'h-sinconexion',
     loadComponent: () => import('./h-sinconexion/h-sinconexion.page').then( m => m.HSinconexionPage)
   },  {
+<<<<<<< HEAD
     path: 'scubi',
     loadComponent: () => import('./scubi/scubi.page').then( m => m.ScubiPage)
+=======
+    path: 'certificados',
+    loadComponent: () => import('./certificados/certificados.page').then( m => m.CertificadosPage)
+>>>>>>> pizarro
   },
 
 ];
