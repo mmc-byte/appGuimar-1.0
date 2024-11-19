@@ -1,0 +1,104 @@
+ion-button {
+  text-transform: none;
+  --background: #1e1f21;
+}
+
+ion-content {
+  --background: #f4f4f9;
+  padding: 0;
+}
+
+/* Barra de búsqueda */
+ion-searchbar {
+  margin: 10px; /* Elimina el margen de la barra de búsqueda */
+  padding: 0; /* Elimina el padding innecesario */
+}
+
+/* Filtros */
+.filters-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-segment {
+  text-transform: none;
+  width: 100%;
+  max-width: 90%;
+  --background: #0c0b0b; /* Fondo negro por defecto */
+  border-radius: 8px;
+}
+
+ion-segment-button {
+  text-transform: none;
+  --indicator-color: #ffffff; /* Color del indicador debajo del botón seleccionado */
+  --background: #0c0b0b; /* Fondo negro por defecto */
+  --color: #ffffff; /* Texto blanco por defecto */
+  transition: all 0.3s ease;
+
+  /* Estado seleccionado */
+  &.segment-button-checked {
+    --background: #ffffff; /* Fondo blanco */
+    color: #f3f3f3; /* Texto negro */
+  }
+}
+
+/* Palabras clave */
+.keywords-section {
+  width: 100%;
+  text-align: center;
+}
+
+.keywords-section h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.custom-chip {
+  --background: #fafafa;
+  color: #333; /* Color del texto */
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 16px;
+}
+
+.custom-chip:hover {
+  transform: scale(1.1);
+  background-color: #007bff; /* Color de fondo al pasar el cursor */
+  color: white; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Sugerencias de palabras debajo de la barra de búsqueda */
+.keywords-suggestions {
+  margin-top: 0; /* Elimina el margen superior para pegar las sugerencias a la barra de búsqueda */
+  padding: 0; /* Elimina padding innecesario */
+}
+.suggestion-list {
+  padding: 10px 0;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item:active {
+  background-color: #e0e0e0;
+}

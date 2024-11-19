@@ -21,7 +21,7 @@ export const routes: Routes = [
       },
       {
         path: 'cursos',
-        loadComponent: () => import('./Paginas/cursos/cursos.component')
+        loadComponent: () => import('./Paginas/cursos-A/cursos/cursos.component')
 
       },
       {

@@ -1,0 +1,35 @@
+<mat-dialog-content>
+  <div class="modal-container">
+    <!-- Botón de cerrar en la esquina superior derecha -->
+    <button class="close-btn" mat-icon-button (click)="closeModal()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <h2 class="modal-title">Datos del Docente</h2>
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Introduce tu nombre" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" placeholder="Introduce la edad" />
+      </div>
+      <div class="form-group">
+        <label for="docente">Docente:</label>
+      <input type="text" id="docente" placeholder="Introduce el nombre del docente" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="numClases">N° Clases:</label>
+      <input type="number" id="numClases" placeholder="Introduce el número de clases" />
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button style="color: aliceblue;" class="btn-save" (click)="saveChanges()">Guardar Cambios</button>
+</mat-dialog-actions>

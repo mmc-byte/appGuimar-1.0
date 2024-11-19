@@ -15,16 +15,46 @@
       <ion-title size="large">Explorar</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar show-clear-button="always" clear-icon="trash-bin" value="Curso" color="primary" placeholder="Primary"> </ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items; let index">
-      <ion-avatar slot="start">
-        <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
-      </ion-avatar>
-      <ion-label>{{ item }}</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-infinite-scroll>
-    <ion-infinite-scroll-content loadingText="Explorando..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <!-- Barra de búsqueda -->
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearch()"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      animated="true"
+      placeholder="¿Qué deseas aprender?">
+    </ion-searchbar>
+
+    <!-- Sugerencias debajo de la barra de búsqueda -->
+    <div class="keywords-suggestions" *ngIf="showSuggestions">
+      <div class="suggestion-list">
+        <div class="suggestion-item" *ngFor="let keyword of keywords" (click)="onKeywordClick(keyword)">
+          {{ keyword }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Filtros -->
+  <div class="filters-section">
+    <ion-segment (ionChange)="onFilter($event)" value="all">
+      <ion-segment-button value="all">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="routes">
+        <ion-label>Rutas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="courses">
+        <ion-label>Cursos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- Palabras clave más buscadas -->
+
 </ion-content>

@@ -5,18 +5,27 @@ import { MatTableModule } from '@angular/material/table'; // Importar MatTableMo
 import { MatPaginatorModule } from '@angular/material/paginator'; // Importar MatPaginatorModule
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 import { MatIconModule } from '@angular/material/icon'; // Importar MatIconModule
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card'; // Importar MatCardModule
+import { MatDialog } from '@angular/material/dialog'; // Importar MatDialog
+import { ModalEditarComponent } from '../modaleditar/modaleditar.component'; // Importar el componente ModalEditarComponent
+
 @Component({
   selector: 'app-cursos',
   styleUrls: ['./cursos.component.css'],
   templateUrl: './cursos.component.html',
   standalone: true,
-  imports: [MatCardModule,MatIconModule, MatTableModule, MatPaginatorModule, FormsModule],  // Asegúrate de que estos módulos estén importados
+  imports: [
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    FormsModule,
+    ModalEditarComponent, // Asegúrate de importar el componente ModalEditarComponent
+  ],  // Asegúrate de que estos módulos estén importados
 })
 export default class CursosComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'nombre', 'edad', 'docente', 'numClases', 'editar'];
 
-  // Inicializamos `data` antes de pasarla a MatTableDataSource
   data = [
     { id: 1, nombre: 'Juan Pérez', edad: 30, docente: 'Sí', numClases: 12 },
     { id: 2, nombre: 'Ana Gómez', edad: 25, docente: 'No', numClases: 8 },
@@ -28,34 +37,36 @@ export default class CursosComponent implements AfterViewInit {
     { id: 3, nombre: 'Carlos Díaz', edad: 40, docente: 'Sí', numClases: 15 }
   ];
 
-  // Ahora se inicializa `dataSource` después de que `data` esté definida
   dataSource = new MatTableDataSource<any>(this.data); // Usamos MatTableDataSource para manejar los datos de la tabla
-
   searchText: string = ''; // Campo de búsqueda
 
-  // Usamos "!" para decirle a TypeScript que el paginator se inicializa más tarde
-  @ViewChild(MatPaginator) paginator!: MatPaginator; // Asegúrate de que MatPaginator esté importado y que ViewChild lo reconozca
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(public dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator; // Aseguramos que la paginación se aplique después de la vista inicializada
   }
 
-  // Filtro para la búsqueda (solo por ID y nombre)
+  // Filtro para la búsqueda
   applyFilter() {
     this.dataSource.filterPredicate = (data: any, filter: string) => {
-      // Convertimos el filtro y los datos a minúsculas para hacer una comparación insensible a mayúsculas
       const filterValue = filter.trim().toLowerCase();
       return data.id.toString().includes(filterValue) || data.nombre.toLowerCase().includes(filterValue);
     };
-
     this.dataSource.filter = this.searchText; // Aplicamos el filtro
   }
 
   // Método para manejar la acción de "Editar"
   editar(id: number) {
-    // Lógica para abrir el modal de edición
-    alert(`Editar el registro con ID: ${id}`);
-    // Aquí podrías llamar a la función para abrir el modal
-  }
+    // Abre el modal de edición y pasa el ID del curso
+    const dialogRef = this.dialog.open(ModalEditarComponent, {
+      width: '700px', // Ajusta el tamaño del modal
+      data: { id: id } // Pasar el ID del curso al modal
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró', result);
+    });
+  }
 }
