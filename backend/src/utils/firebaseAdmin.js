@@ -1,4 +1,4 @@
-const firebase = require('../../../firebase/firebaseConfig.js'); //importado desde '/firebase
+const firebase = require('../../../firebase/firebaseConfig'); //importado desde '/firebase
 
 //--fin
 module.exports = firebase;
