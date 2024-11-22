@@ -18,7 +18,6 @@
 
   <!-- Barra de búsqueda -->
   <div class="search-container">
-    <!-- Barra de búsqueda -->
     <ion-searchbar
       [(ngModel)]="searchQuery"
       (ionInput)="onSearch()"
@@ -31,15 +30,14 @@
     <!-- Sugerencias debajo de la barra de búsqueda -->
     <div class="keywords-suggestions" *ngIf="showSuggestions">
       <div class="suggestion-list">
-        <div class="suggestion-item" *ngFor="let keyword of keywords" (click)="onKeywordClick(keyword)">
+        <div class="suggestion-item" *ngFor="let keyword of filteredKeywords" (click)="onKeywordClick(keyword)">
           {{ keyword }}
         </div>
       </div>
     </div>
   </div>
 
-
-
+  <br>
   <!-- Filtros -->
   <div class="filters-section">
     <ion-segment (ionChange)="onFilter($event)" value="all">
@@ -55,6 +53,100 @@
     </ion-segment>
   </div>
 
-  <!-- Palabras clave más buscadas -->
+  <ion-card *ngFor="let curso of filteredCursos; let i = index" [id]="'curso-' + i">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <!-- Imagen del curso -->
+        <ion-col size="auto">
+          <ion-img
+            [src]="curso.imagen"
+            alt="Curso"
+            (click)="curso.tipo === 'courses' ? setOpen(true, curso) : setOpenRuta(true, curso)">
+          </ion-img>
+        </ion-col>
+
+        <!-- Contenido del curso -->
+        <ion-col>
+          <ion-card-title>{{ curso.titulo }}</ion-card-title>
+          <ion-card-content>
+            {{ curso.descripcion }}
+          </ion-card-content>
+        </ion-col>
+
+        <!-- Botón con carrito de compras -->
+        <ion-col size="auto">
+          <ion-button class="large-button" color="primary" fill="solid" (click)="mostrarAlerta()">
+            <ion-icon slot="icon-only" name="cart"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <!-- Modal PARA CURSOS INDIVIDUALES -->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="setOpen(false)">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding modal-content">
+        <!-- Título del curso -->
+        <h2 class="modal-title">{{ selectedCurso?.titulo }}</h2>
+
+        <!-- Imagen del curso -->
+        <ion-img class="modal-image" [src]="selectedCurso?.imagen" alt="Imagen del curso"></ion-img>
+
+        <!-- Precio del curso -->
+        <p class="modal-price"><strong>Precio:</strong> ${{ selectedCurso?.precio || 'No disponible' }}</p>
+
+        <!-- Descripción del curso -->
+        <p class="modal-description"><strong>Descripción:</strong> {{ selectedCurso?.descripcion }}</p>
+
+        <!-- Botón de añadir al carrito -->
+        <ion-button expand="block" >Añadir al carrito</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- Modal PARA RUTAS -->
+<ion-modal [isOpen]="isModalRutaOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="setOpenRuta(false)">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>{{ selectedRuta?.titulo }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding modal-content">
+      <!-- Descripción de la ruta -->
+      <p class="modal-description"><strong>Descripción:</strong> {{ selectedRuta?.descripcion }}</p>
+
+      <!-- Lista de cursos dentro de la ruta -->
+      <ion-list>
+        <ion-item *ngFor="let curso of selectedRuta?.cursos">
+          <ion-avatar slot="start">
+            <ion-img [src]="curso.imagen" alt="Imagen del curso" style="width: 40px; height: 40px;"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ curso.titulo }}</h2>
+            <p>{{ curso.duracion }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <!-- Botón para añadir toda la ruta al carrito -->
+      <ion-button expand="block" (click)="agregarRutaACarrito()">Añadir ruta completa al carrito</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 
 </ion-content>

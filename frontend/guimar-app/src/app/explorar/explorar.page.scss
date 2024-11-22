@@ -10,7 +10,7 @@ ion-content {
 
 /* Barra de búsqueda */
 ion-searchbar {
-  margin: 10px; /* Elimina el margen de la barra de búsqueda */
+  margin: 0px; /* Elimina el margen de la barra de búsqueda */
   padding: 0; /* Elimina el padding innecesario */
 }
 
@@ -101,4 +101,101 @@ ion-segment-button {
 
 .suggestion-item:active {
   background-color: #e0e0e0;
+}
+
+
+
+/* Los carts o cursos */
+ion-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  width: 95%; /* Ancho específico del card */
+  height: 15%; /* Altura específica del card */
+  max-width: 100%; /* Evita que el card crezca más allá del contenedor */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+ion-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  margin-left: 9%; /* Ajusta este valor según necesites */
+}
+
+ion-card-content {
+  margin-top: -10px; /* Ajusta la posición más hacia arriba */
+
+  font-size: 0.8rem;
+  color: gray;
+  display: -webkit-box; /* Habilita la funcionalidad de clamp */
+  -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
+  -webkit-box-orient: vertical; /* Define la orientación del texto */
+  overflow: hidden; /* Oculta el contenido que excede */
+  max-width: 100%; /* Asegura que el texto no desborde horizontalmente */
+  text-overflow: clip; /* Elimina los puntos suspensivos */
+  text-align: justify; /* Justifica el texto */
+}
+
+
+
+.large-button {
+  --size: 3rem; /* Cambia el tamaño general del botón */
+  width: 50px;  /* Ajusta el ancho del botón */
+  height: 60px; /* Ajusta la altura del botón */
+  font-size: 1.5rem; /* Ajusta el tamaño del ícono dentro del botón */
+}
+
+.large-button ion-icon {
+  font-size: 2rem; /* Cambia el tamaño del ícono */
+}
+
+
+
+
+
+
+.modal-content {
+  text-align: center; /* Centra el contenido del modal */
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-image {
+  max-width: 80%; /* Ajusta el tamaño de la imagen al 80% del ancho del modal */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin: 0 auto 1rem; /* Centra la imagen y añade margen inferior */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.modal-price {
+  font-size: 1.2rem;
+  color: #1e88e5; /* Azul para resaltar */
+  margin: 1rem 0;
+}
+
+.modal-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 2rem;
+  line-height: 1.5; /* Mejora la legibilidad */
+}
+
+ion-button {
+  --background: #1e88e5; /* Azul claro */
+  --background-hover: #1565c0; /* Azul oscuro al pasar el mouse */
+  --border-radius: 5px; /* Botón con bordes redondeados */
+  margin-top: 1rem;
 }
