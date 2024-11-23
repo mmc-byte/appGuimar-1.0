@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/cuerpo-app/perfil']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Carrito</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Aquí empieza la lista de cursos en el carrito -->
+  <ion-list>
+    <ion-card *ngFor="let curso of filteredCursos; let i = index" [id]="'curso-' + i">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <!-- Imagen del curso -->
+          <ion-col size="auto">
+            <ion-img
+              [src]="curso.imagen"
+              alt="Curso">
+            </ion-img>
+          </ion-col>
+
+          <!-- Contenido del curso -->
+          <ion-col>
+            <ion-card-title>{{ curso.titulo }}</ion-card-title>
+            <ion-card-content>
+              {{ curso.descripcion }}
+            </ion-card-content>
+          </ion-col>
+
+
+          <!-- Botón de eliminar con un ID único -->
+          <ion-col size="auto">
+            <ion-button
+              class="large-button"
+              color="danger"
+              fill="solid"
+              (click)="eliminarDelCarrito(curso)"
+              [id]="'eliminar-' + i"> <!-- ID único para cada botón -->
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
+</ion-content>

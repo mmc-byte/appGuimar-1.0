@@ -5,7 +5,7 @@ import { IonicModule, ModalController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star } from 'ionicons/icons';
 import { RouterLink } from '@angular/router';
-
+import { ModalInfopersonalPage } from '../Modales/modal-infopersonal/modal-infopersonal.page'; // Importa el modal
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',

@@ -19,15 +19,38 @@ export const routes: Routes = [
       { path: 'home', loadComponent: () => import('./home/home.page').then(m => m.HomePage) },
       { path: 'explorar', loadComponent: () => import('./explorar/explorar.page').then(m => m.ExplorarPage) },
       { path: 'rutas', loadComponent: () => import('./rutas/rutas.page').then(m => m.RutasPage) },
-      { path: 'perfil', loadComponent: () => import('./perfil/perfil.page').then(m => m.PerfilPage) },
+      { path: 'perfil', loadComponent: () => import('./Perfil-total/perfil/perfil.page').then(m => m.PerfilPage) },
     ]
   },
   {
     path: 'h-sinconexion',
     loadComponent: () => import('./h-sinconexion/h-sinconexion.page').then( m => m.HSinconexionPage)
-  },  {
-    path: 'certificados',
-    loadComponent: () => import('./certificados/certificados.page').then( m => m.CertificadosPage)
   },
+  {
+    path: 'certificados',
+    loadComponent: () => import('./Perfil-total/Modales/certificados/certificados.page').then( m => m.CertificadosPage)
+  },
+  {
+    path: 'modal-infopersonal',
+    loadComponent: () => import('./Perfil-total/Modales/modal-infopersonal/modal-infopersonal.page').then( m => m.ModalInfopersonalPage)
+  },
+  {
+    path: 'notificaciones',
+    loadComponent: () => import('./Perfil-total/Modales/notificaciones/notificaciones.page').then( m => m.NotificacionesPage)
+  },
+  {
+    path: 'becas',
+    loadComponent: () => import('./Perfil-total/Modales/becas/becas.page').then( m => m.BecasPage)
+  },
+  {
+    path: 'carrito',
+    loadComponent: () => import('./Perfil-total/Modales/carrito/carrito.page').then( m => m.CarritoPage)
+  },
+  {
+    path: 'historial',
+    loadComponent: () => import('./Perfil-total/Modales/historial/historial.page').then( m => m.HistorialPage)
+  },
+
+
 
 ];

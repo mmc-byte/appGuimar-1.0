@@ -55,7 +55,7 @@ ion-modal ion-toolbar {
   justify-content: flex-start; /* Alinea el contenido a la izquierda */
   height: 80px; /* Ajusta la altura del botón */
   font-size: 15px; /* Aumenta el tamaño de la fuente */
-  margin-bottom: 12px; /* Espacio adicional debajo de cada botón */
+  margin-bottom: 8px; /* Espacio adicional debajo de cada botón */
   width: 90%; /* Reduce el ancho del botón */
   max-width: 400px; /* Establece un ancho máximo opcional */
   margin-left: auto;
@@ -76,4 +76,10 @@ ion-modal ion-toolbar {
 .custom-button:hover {
   --background: #2c3e50; /* Color al pasar el mouse (hover) */
   transition: 0.3s;
+}
+.button-row {
+  margin-bottom: -10px; /* Espacio adicional debajo de cada botón */
+  margin-top: -10px; /* Margen superior de cada botón */
+  margin-left: 5px;
+  margin-right:5px;
 }

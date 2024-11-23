@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/cuerpo-app/perfil']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Información Personal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Lista de información -->
+  <ion-list>
+    <!-- Nombre -->
+    <ion-item>
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      <ion-label>
+        <h2>Nombre:</h2>
+        <p>{{ user.name }}</p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Apellido -->
+    <ion-item>
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-label>
+        <h2>Apellido:</h2>
+        <p>{{ user.lastName }}</p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Edad -->
+    <ion-item>
+      <ion-icon slot="start" name="time-outline"></ion-icon>
+      <ion-label>
+        <h2>Edad:</h2>
+        <p>{{ user.age }}</p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Dirección -->
+    <ion-item *ngIf="!editAddress">
+      <ion-icon slot="start" name="location-outline"></ion-icon>
+      <ion-label>
+        <h2>Dirección:</h2>
+        <p>{{ user.address }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editAddress = true">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item *ngIf="editAddress">
+      <ion-icon slot="start" name="location-outline"></ion-icon>
+      <ion-label>
+        <h2>Dirección:</h2>
+        <ion-input [(ngModel)]="user.address"></ion-input>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editAddress = false">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <!-- Correo -->
+    <ion-item *ngIf="!editEmail">
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-label>
+        <h2>Correo:</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editEmail = true">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item *ngIf="editEmail">
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-label>
+        <h2>Correo:</h2>
+        <ion-input [(ngModel)]="user.email"></ion-input>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editEmail = false">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <!-- Número Telefónico -->
+    <ion-item *ngIf="!editPhone">
+      <ion-icon slot="start" name="call-outline"></ion-icon>
+      <ion-label>
+        <h2>Número Telefónico:</h2>
+        <p>{{ user.phone }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editPhone = true">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item *ngIf="editPhone">
+      <ion-icon slot="start" name="call-outline"></ion-icon>
+      <ion-label>
+        <h2>Número Telefónico:</h2>
+        <ion-input [(ngModel)]="user.phone"></ion-input>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editPhone = false">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

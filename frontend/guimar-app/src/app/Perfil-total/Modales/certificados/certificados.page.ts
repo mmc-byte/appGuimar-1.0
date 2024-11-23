@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';  // Asegúrate de importar IonicModule
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink} from '@angular/router';  // Importar el Router
 
 @Component({
   selector: 'app-certificados',
   templateUrl: './certificados.page.html',
   styleUrls: ['./certificados.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]  // Aquí importas IonicModule
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]  // Aquí importas IonicModule
 })
 export class CertificadosPage {
 
