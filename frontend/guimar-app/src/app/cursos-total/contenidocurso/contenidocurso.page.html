@@ -1,0 +1,175 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  default-href="/cuerpo-app/rutas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contenido del curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">contenidocurso</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<br>
+
+<div class="filters-section">
+  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="inicio">
+      <ion-label>Inicio</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="calificacion">
+      <ion-label>Calificación</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="informacion">
+      <ion-label>Información</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+
+<ion-grid *ngIf="selectedSegment === 'inicio'">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Contenido del Curso</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-accordion-group>
+            <!-- Iteración sobre los temas -->
+            <ion-accordion *ngFor="let tema of temas">
+              <ion-item slot="header">
+                <ion-icon name="star" slot="start" color="success"></ion-icon>
+                <ion-label>
+                  <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span>{{ tema.nombre }}</span>
+                    <br>
+                    <span>Duración: {{ tema.duracion }}</span>
+                  </div>
+                </ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-list>
+                  <!-- Iteración sobre los items dentro de cada tema -->
+                  <ion-item *ngFor="let item of tema.items">
+                    <ion-label>{{ item.label }}</ion-label>
+                    <ion-button
+                      fill="clear"
+                      slot="end"
+                      size="large"
+                      *ngIf="item.action === 'redirect'"
+                      [routerLink]="['/evaluaciones']"
+                      [queryParams]="{ tema: tema.nombre, item: item.label }">
+                      <ion-icon [name]="item.icon" slot="icon-only"></ion-icon>
+                    </ion-button>
+                    <ion-button
+                      fill="clear"
+                      slot="end"
+                      size="large"
+                      *ngIf="item.action === 'play'"
+                      (click)="playContent(tema.nombre)">
+                      <ion-icon [name]="item.icon" slot="icon-only"></ion-icon>
+                    </ion-button>
+                  </ion-item>
+                </ion-list>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid *ngIf="selectedSegment === 'calificacion'">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Calificaciones</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card color="light">
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <!-- Promedio Final -->
+                <ion-col>
+                  <ion-card-title style="font-size: 22px; font-weight: bold;">Promedio Final:</ion-card-title>
+                  <ion-card-content style="font-size: 18px;">Nota:</ion-card-content>
+                </ion-col>
+                <!-- Cuadro de nota -->
+                <ion-col size="auto">
+                  <div style="background-color: #4CAF50; color: white; border-radius: 10px; padding: 12px 24px; font-size: 24px; font-weight: bold;">
+                    18
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+
+          <!-- Aquí usamos ngFor para recorrer los temas -->
+          <ion-card color="light" *ngFor="let tema of temas">
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col>
+                  <ion-card-title>{{ tema.nombre }}</ion-card-title>
+                  <ion-card-content>Nota:</ion-card-content>
+                </ion-col>
+                <ion-col size="auto">
+                  <div style="background-color: #4CAF50; color: white; border-radius: 10px; padding: 8px 16px; font-size: 16px;">
+                    {{ tema.nota }}  <!-- Aquí mostramos la nota del tema -->
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngIf="selectedSegment === 'informacion'">
+
+          <ion-grid>
+            <ion-row>
+              <!-- Primer Card con imagen (más ancho) -->
+              <ion-col size="6" size-md="9">
+                <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>Instructor 1</ion-card-title>
+                  </ion-card-header>
+                  <!-- Imagen debajo del título -->
+                  <ion-img src="assets/icon/favicon.png" alt="Instructor 1"></ion-img>
+                </ion-card>
+              </ion-col>
+
+              <!-- Segundo Card con imagen (más ancho) -->
+              <ion-col size="6" size-md="9">
+                <ion-card color="medium">
+                  <ion-card-header>
+                    <ion-card-title>Instructor 2</ion-card-title>
+                  </ion-card-header>
+                  <!-- Imagen debajo del título -->
+                  <ion-img src="assets/icon/favicon.png" alt="Instructor 2"></ion-img>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <!-- Descripción general del curso -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Descripción del Curso</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="descripcion-curso">
+              {{ descripcionCurso }}
+            </ion-card-content>
+          </ion-card>
+</ion-grid>
+
+</ion-content>

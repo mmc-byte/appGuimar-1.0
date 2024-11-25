@@ -1,0 +1,42 @@
+ion-content{
+  --background: #a3a0a0;
+}
+
+.custom-progress {
+  height: 8px;  /* Grosor de la barra de progreso */
+  border-radius: 20px; /* Bordes redondeados */
+  --background: #2b2525;  /* Fondo negro de la barra de progreso */
+  --progress-background: linear-gradient(to left, rgb(57, 255, 20), rgb(0, 255, 80));  /* Degradado verde */
+  box-shadow: 0 4px 6px rgba(29, 28, 28, 0.3);  /* Sombra para un efecto más profesional */
+  transition: width 0.5s ease;  /* Animación suave para el cambio de valor */
+}
+
+
+
+ion-button{
+  --background:  #ffffff00 ;
+  --border-color: transparent; /* Bordes transparentes */
+  --box-shadow: none;  /* Eliminar cualquier sombra predeterminada */
+}
+.explore-button {
+  background: linear-gradient(to right, #1e62d1, #7929c0);  /* Gradiente de azul a morado */
+  border-radius: 25px;  /* Bordes redondeados */
+  color: white;  /* Texto blanco */
+  font-weight: bold;  /* Texto en negrita */
+  text-transform: uppercase;  /* Texto en mayúsculas */
+  padding: 10px 15px;  /* Relleno alrededor del texto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Sombra sutil */
+  transition: all 0.3s ease-in-out;  /* Animación suave */
+}
+
+/* Efecto hover */
+.explore-button:hover {
+  transform: scale(1.05);  /* Aumentar ligeramente el tamaño */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  /* Aumentar sombra al hacer hover */
+}
+
+/* Efecto focus para accesibilidad */
+.explore-button:focus {
+  outline: none;  /* Quitar contorno de enfoque */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);  /* Sombra verde alrededor del botón */
+}

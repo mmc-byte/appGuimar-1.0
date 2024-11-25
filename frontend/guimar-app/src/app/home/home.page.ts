@@ -27,7 +27,7 @@ export class HomePage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // Simulación de la actualización de progreso de cada card
     this.items.forEach((_, index) => {
-      setTimeout(() => this.updateProgress(index, 100), 400);
+      setTimeout(() => this.updateProgress(index, 60), 400);
     });
   }
 

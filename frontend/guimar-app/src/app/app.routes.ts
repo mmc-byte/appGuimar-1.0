@@ -18,7 +18,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirige a la ruta de home al cargar cuerpo-app
       { path: 'home', loadComponent: () => import('./home/home.page').then(m => m.HomePage) },
       { path: 'explorar', loadComponent: () => import('./explorar/explorar.page').then(m => m.ExplorarPage) },
-      { path: 'rutas', loadComponent: () => import('./rutas/rutas.page').then(m => m.RutasPage) },
+      { path: 'rutas', loadComponent: () => import('./cursos-total/rutas/rutas.page').then(m => m.RutasPage) },
       { path: 'perfil', loadComponent: () => import('./Perfil-total/perfil/perfil.page').then(m => m.PerfilPage) },
     ]
   },
@@ -50,6 +50,16 @@ export const routes: Routes = [
     path: 'historial',
     loadComponent: () => import('./Perfil-total/Modales/historial/historial.page').then( m => m.HistorialPage)
   },
+  {
+    path: 'contenidocurso',
+    loadComponent: () => import('./cursos-total/contenidocurso/contenidocurso.page').then( m => m.ContenidocursoPage)
+  },
+  {
+    path: 'evaluaciones',
+    loadComponent: () => import('./calificaciones/evaluaciones/evaluaciones.page').then( m => m.EvaluacionesPage)
+  },
+
+
 
 
 

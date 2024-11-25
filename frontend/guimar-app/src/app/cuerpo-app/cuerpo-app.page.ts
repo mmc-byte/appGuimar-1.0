@@ -11,7 +11,7 @@ import { createAnimation } from '@ionic/core';
   templateUrl: './cuerpo-app.page.html',
   styleUrls: ['./cuerpo-app.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink],
 })
 
 export class CuerpoAppPage {

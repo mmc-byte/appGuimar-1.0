@@ -1,0 +1,171 @@
+/* Filtros */
+.filters-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-segment {
+  text-transform: none;
+  width: 100%;
+  max-width: 90%;
+  --background: #0c0b0b; /* Fondo negro por defecto */
+  border-radius: 8px;
+}
+
+ion-segment-button {
+  text-transform: none;
+  --indicator-color: #ffffff; /* Color del indicador debajo del botón seleccionado */
+  --background: #0c0b0b; /* Fondo negro por defecto */
+  --color: #ffffff; /* Texto blanco por defecto */
+  transition: all 0.3s ease;
+
+  /* Estado seleccionado */
+  &.segment-button-checked {
+    --background: #ffffff; /* Fondo blanco */
+    color: #f3f3f3; /* Texto negro */
+  }
+}
+
+  /* Estilos para los acordeones */
+
+$primary-color: #4CAF50;  // Color verde para iconos y botones
+$background-color: #f9f9f9;  // Fondo suave
+$card-bg: #ffffff;  // Fondo blanco para las tarjetas
+$text-color: #000000;  // Color de texto oscuro
+$border-radius: 8px;  // Bordes redondeados
+$shadow-color: rgba(0, 0, 0, 0.1);  // Sombra sutil
+
+// Estilos generales del contenedor
+ion-grid {
+  padding: 16px;
+}
+
+ion-card {
+  background-color: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 6px $shadow-color;
+  margin: 16px 0;
+  transition: all 0.3s ease;
+
+  ion-card-header {
+    background-color: $primary-color;
+    color: white;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    padding: 16px;
+
+    ion-card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  ion-card-content {
+    padding: 16px;
+  }
+}
+
+ion-accordion {
+  --background: #fff;
+  --border-radius: $border-radius;
+  margin-bottom: 8px;
+
+  ion-item {
+    --min-height: 56px;
+    --background: transparent;
+    --padding-start: 16px;
+    --padding-end: 16px;
+
+    &:not([disabled]):hover {
+      background-color: #f1f1f1;
+    }
+
+    ion-icon {
+      font-size: 20px;
+      color: $primary-color;
+    }
+
+    ion-label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 16px;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    span {
+      font-size: 14px;
+      color: #000000;
+    }
+  }
+
+  .ion-padding {
+    padding-left: 32px;
+  }
+}
+
+ion-button {
+  font-size: 14px;
+  --border-radius: $border-radius;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --color: $primary-color;
+  --background: transparent;
+
+  ion-icon {
+    font-size: 20px;
+    color: $primary-color;
+  }
+
+  &:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+  }
+}
+
+ion-list {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+ion-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+
+  ion-label {
+    font-size: 14px;
+    color: $text-color;
+  }
+
+  ion-button {
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+}
+
+// Animación de la transición del acordeón
+ion-accordion[expanded] {
+  ion-item {
+    background-color: #e0f7fa;
+  }
+}
+
+
+
+
+
+.descripcion-curso {
+  text-align: justify;  /* Texto justificado */
+  padding: 16px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;  /* Mejor espaciado entre líneas */
+}
+
+
+
